@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "English Explainer",
+  "version": "1.0",
+  "description": "Finds easy synonyms with a simple right-click.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
