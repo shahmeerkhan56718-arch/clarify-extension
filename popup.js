@@ -10,11 +10,11 @@ document.getElementById('getSynonymsBtn').addEventListener('click', () => {
   
   outputDiv.innerText = "Searching...";
   
-  fetch('http://127.0.0.1:5000/synonym', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text: word })
-  })
+fetch('https://clarify-extension.vercel.app/synonym', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ text: word })
+})
   .then(res => res.json())
   .then(data => {
     outputDiv.innerText = data.result || "No synonyms found.";
@@ -36,13 +36,13 @@ document.getElementById('speakBtn').addEventListener('click', async () => {
 
 
 
-  try {
-    const response = await fetch('http://127.0.0.1:5000/pronounce', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: word })
-    });
-    
+try {
+  const response = await fetch('https://clarify-extension.vercel.app/pronounce', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: word })
+  });
+
     const data = await response.json();
     
     if (data.audio) {
@@ -67,11 +67,11 @@ document.getElementById('simplifyBtn').addEventListener('click', () => {
   
   outputDiv.innerText = "Simplifying...";
   
-  fetch('http://127.0.0.1:5000/simplify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text: paragraph })
-  })
+fetch('https://clarify-extension.vercel.app/simplify', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ text: paragraph })
+})
   .then(res => res.json())
   .then(data => {
     outputDiv.innerText = data.result || "Could not simplify.";
